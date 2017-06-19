@@ -1,0 +1,1 @@
+# sequelize-that-burger
