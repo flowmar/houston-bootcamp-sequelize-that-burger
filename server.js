@@ -5,9 +5,9 @@ var methodOverride = require("method-override");
 //////////////////////////////////////////////////
 //// Change the port variable to the node environment
 /////////////////////////////////////////////
-var PORT = process.env.NODE_ENV || 3000;
+var PORT = process.env.NODE_ENV || 8000;
 var app = express();
-
+app.use(bodyParser());
 
 /////////////////////////////////////////////////////
 // Require the models directory
@@ -42,15 +42,15 @@ app.use("/update", routes);
 app.use("/create", routes);
 
 
-app.listen(PORT, function() {
-  console.log("Listening on port:%s", PORT);
-});
+// app.listen(PORT, function() {
+//   console.log("Listening on port:%s", PORT);
+// });
 
 // Include the models directory
 var db = require("./models");
 
 // Create a new User via .create
-// .create takes in at least 1 argumen: an object containing key value
+// .create takes in at least 1 argument: an object containing key value
 // pairs describing the new record we want to create.
 db.User.create({
   email: "tom@myspace.com",
